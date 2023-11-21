@@ -1,0 +1,178 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  background: #0D1117;
+}
+
+input {
+  outline: none;
+  border: unset;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.todo-list-container,
+.picture-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
+.picture {
+  width: 100%;
+  max-width: 600px;
+}
+
+.todo-list {
+  position: relative;
+  height: 653px;
+  width: 438px;
+  border-radius: 30px;
+  background: linear-gradient(112deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.10) 73.15%);
+  box-shadow: 0px 1px 24px -1px rgba(0, 0, 0, 0.10);
+  backdrop-filter: blur(7.5px);
+  overflow: hidden;
+  padding: 19px 30px;
+}
+
+.todo-list__title {
+  color: rgba(255, 255, 255, 0.80);
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 45px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: 36px;
+}
+
+.todo-list__input-display {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 49px;
+}
+
+.todo-list__input-display__title {
+  width: 192px;
+  height: 35px;
+}
+
+.todo-list__input-display__count {
+  width: 64px;
+  height: 35px;
+}
+
+.todo-list__input-display__title,
+.todo-list__input-display__count {
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.60);
+  color: black;
+  font-family: Montserrat;
+  font-size: 18.22px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+
+.todo-list__input-display__button {
+  border-radius: 5px;
+  border: 2px solid #FFD700;
+  background: transparent;
+  color: #FFD700;
+  width: 101px;
+  height: 35px;
+  cursor: pointer;
+}
+
+.todo-list__input-display__button:active {
+  background: rgba(255, 217, 0, 0.342);
+}
+
+.todo-list__item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.todo-list__item__container {
+  display: flex;
+  align-items: center;
+}
+
+.todo-list__item__count {
+  height: 30px;
+  width: 30px;
+  background: #FFD700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-family: Calibri;
+  border-radius: 3px;
+}
+
+.todo-list__item__name-product {
+  color: rgba(255, 255, 255, 0.90);
+  font-family: Calibri;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-left: 15px;
+}
+
+.todo-list__item__remove {
+  cursor: pointer;
+}
+
+.todo-list__ellipse-one {
+  width: 170px;
+  height: 170px;
+  background: #FFECF5;
+  filter: blur(100px);
+  position: absolute;
+  top: -60px;
+  left: -70px;
+}
+
+.todo-list__ellipse-two {
+  position: absolute;
+  width: 228px;
+  height: 228px;
+  background: #FFC285;
+  filter: blur(100px);
+  bottom: -50px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.todo-list__ellipse-three {
+  width: 125px;
+  height: 125px;
+  background: #8600FF;
+  filter: blur(100px);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.todo-list__ellipse-four {
+  width: 125px;
+  height: 125px;
+  background: #F00;
+  filter: blur(100px);
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
