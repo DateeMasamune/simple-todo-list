@@ -40,13 +40,18 @@ const displayInput = () => {
     getProductCount,
   }
 }
-const displayInputModule = displayInput()
 
 const todoList = () => {
   let list = []
   const [todoContainer] = document.getElementsByClassName('todo-list__items_container')
-
+  const displayInputModule = displayInput()
   const { handlerClick, getProductCount, getProductName, clearField } = displayInputModule
+
+  const removeProduct = (productId) => {
+    list = list.filter(({ id }) => id !== productId)
+    render(list)
+  }
+
   const setRemoveHandler = () => {
     const removeButtons = document.querySelectorAll('.todo-list__item__remove')
 
@@ -54,6 +59,23 @@ const todoList = () => {
       addListener(button, 'click', () => removeProduct(button.dataset.id))
     }
   }
+
+  const addList = () => {
+    const productName = getProductName()
+    const productCount = getProductCount()
+    const idProduct = `${list.length + 1}-${Math.floor(Math.random() * list.length + 1)}-${productCount}`
+
+    list.push({
+      id: idProduct,
+      name: productName,
+      count: productCount
+    })
+
+    clearField()
+    render(list)
+  }
+
+  handlerClick(addList)
 
   const render = (todoList) => {
     todoContainer.innerHTML = todoList.map(({ name, count, id }) =>
@@ -70,27 +92,8 @@ const todoList = () => {
 </section>`).join(' ')
     setRemoveHandler()
   }
-
-  const removeProduct = (productId) => {
-    list = list.filter(({ id }) => id !== productId)
-    render(list)
-  }
-
-  const addList = () => {
-    const productName = getProductName()
-    const productCount = getProductCount()
-    const idProduct = `${list.length + 1}-${productName}-${productCount}`
-
-    list.push({
-      id: idProduct,
-      name: productName,
-      count: productCount
-    })
-    clearField()
-    render(list)
-  }
-
-  handlerClick(addList)
 }
 
-const todoListModule = todoList()
+const init = () => todoList()
+init()
+
