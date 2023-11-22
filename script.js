@@ -44,8 +44,7 @@ const displayInput = () => {
 const todoList = () => {
   let list = []
   const [todoContainer] = document.getElementsByClassName('todo-list__items_container')
-  const displayInputModule = displayInput()
-  const { handlerClick, getProductCount, getProductName, clearField } = displayInputModule
+  const { handlerClick, getProductCount, getProductName, clearField } = displayInput()
 
   const removeProduct = (productId) => {
     list = list.filter(({ id }) => id !== productId)
