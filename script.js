@@ -96,3 +96,31 @@ const todoList = () => {
 const init = () => todoList()
 init()
 
+const taska = () => {
+  const inData = "user.name.firstname=Bob&user.name.lastname=Smith&user.favoritecolor=Light%20Blue&experiments.theme=dark"
+
+  const parseGetParams = (getParams) => {
+    return getParams.split('&').reduce((curr, next) => {
+      const parseDeepParam = next.split('.')
+      let currentObj = curr
+
+      for (let key of parseDeepParam) {
+        const [paramKey, paramValue] = key.split('=')
+
+        if (paramValue) {
+          currentObj[paramKey] = decodeURIComponent(paramValue)
+          currentObj = curr
+        } else if (key in currentObj) {
+          currentObj = currentObj[key]
+        } else {
+          currentObj[key] = {}
+          currentObj = currentObj[key]
+        }
+
+      }
+      return curr
+    }, {})
+  }
+  parseGetParams(inData)
+}
+taska()
